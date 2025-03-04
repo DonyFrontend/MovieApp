@@ -1,0 +1,2 @@
+import { StateCreator } from "zustand";
+
