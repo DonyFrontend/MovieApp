@@ -4,7 +4,7 @@ import instance from "@/shared/api/tmdb/instance";
 
 export const HomeSlice: StateCreator<IHomeSLice> = (set) => ({
     data: {
-        page: '',
+        page: 0,
         results: [],
         total_pages: 0,
         total_results: 0
