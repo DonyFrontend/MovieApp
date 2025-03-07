@@ -1,12 +1,21 @@
 import './styles/App.css'
 import RoutesComponent from './providers/router/Routes';
 import Navigation from '@/widgets/navigation/Navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import show_nav from '@/shared/assets/icons/show_nav.svg'
 import hide_nav from '@/shared/assets/icons/hide_nav.svg'
+import { useLocation, useNavigate } from 'react-router-dom';
 
 function App() {
   const [nav, setNav] = useState<boolean>(JSON.parse(localStorage.getItem('nav') || 'false'));
+  const location = useLocation().pathname;
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (location == '/') {
+      navigate('/main/films')
+    }
+  }, [location, navigate])
 
   function setNavigation(value: boolean) {
     setNav(value);

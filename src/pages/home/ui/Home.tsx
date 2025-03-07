@@ -1,52 +1,31 @@
-import { mainStore } from "@/app/providers/store/mainStore/mainStore";
-import { imgUrl } from "@/shared/api/tmdb_images/instance";
-import { useEffect, useState } from "react";
-import rating from '@/shared/assets/icons/rating.svg';
+import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
+import Films from "./homePages/Films";
+import Serials from "./homePages/Serials";
+import CustomLink from "./CustomLink";
+import { useEffect } from "react";
 
 const Home = () => {
-
-  const [loading, setLoading] = useState<boolean>(false);
-  const [count, setCount] = useState<number>(1);
-  const data = mainStore();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
-    data.setData(count, setLoading);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [count])
-
-
-  if (loading) {
-    return <h1 className="text-white">Loading...</h1>
-  }
-
-
-  console.log(data.data);
-
+    if (location.pathname == '/main/*') {
+      navigate('/main/films')
+    }
+  }, [location.pathname, navigate])
 
   return (
-    <div className="text-white p-4">
-      <div className="flex flex-col gap-y-5">
-        <h1 className="text-[25px]">Популярные фильмы:</h1>
-        <article className={`grid grid-cols-5 auto-rows-auto gap-5`}>
-          {data.data.results.map((item, index) => <section key={index} className="rounded-[10px] bg-[#F8B319] p-1 flex flex-col gap-y-2">
-            <div className="relative">
-              <img src={imgUrl + item.poster_path} alt="IMAGE" className="rounded-[10px] brightness-75" />
-              <h2 className="absolute top-2 left-2 text-[20px] font-semibold">{item.title}</h2>
-              <div className="absolute left-2 bottom-2 flex items-center gap-x-1">
-                <img src={rating} alt="rating" /><p className="text-[20px] font-bold">: {item.vote_average}</p>
-              </div>
-            </div>
-            <div>
-              <button className="bg-gray-800 hover:bg-gray-950 transition-colors p-2 px-4 rounded-[10px]">О фильме</button>
-            </div>
-          </section>)}
-        </article>
+    <div className="text-white p-4 flex flex-col gap-y-8">
+      <nav className="flex gap-x-4 items-center">
+        <CustomLink text="Сериалы" to="/main/serials"/>
+        <CustomLink text="Фильмы" to="/main/films"/>
+      </nav>
 
-        <div className="flex gap-x-2 items-center">
-          <button className="bg-[#F8B319] hover:bg-yellow-600 transition-colors p-2 px-4 rounded-[10px]" disabled={data.data.page == 1} onClick={() => setCount(count - 1)}>Назад</button>
-          <button className="bg-[#F8B319] hover:bg-yellow-600 transition-colors p-2 px-4 rounded-[10px]" disabled={data.data.page == 500} onClick={() => setCount(count + 1)}>Дальше</button>
-          <p className="text-[20px]">{data.data.page}/500</p>
-        </div>
+      <div className="flex flex-col gap-y-5">
+        <Routes>
+          <Route path="/films" element={<Films/>} />
+          <Route path="/serials" element={<Serials />} />
+        </Routes>
       </div>
     </div>
   )

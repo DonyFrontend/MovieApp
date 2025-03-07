@@ -6,7 +6,7 @@ export enum RouterEnum {
 }
 
 export const RouterPath =  {
-    HOME: () => '/',
+    HOME: () => '/main/*',
     SEARCH: () => '/search',
     TOP_RATED: () => '/top_rated',
     NOW_IN_CINEMA: () => '/now_in_cinema',

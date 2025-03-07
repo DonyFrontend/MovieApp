@@ -2,7 +2,7 @@ import { StateCreator } from "zustand";
 import { IHomeSLice } from "../types/SliceTypes";
 import instance from "@/shared/api/tmdb/instance";
 
-export const HomeSlice: StateCreator<IHomeSLice> = (set) => ({
+export const PopularMoviesSliceSlice: StateCreator<IHomeSLice> = (set) => ({
     data: {
         page: 0,
         results: [],
