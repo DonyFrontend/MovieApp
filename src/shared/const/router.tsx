@@ -1,8 +1,10 @@
+import Film from "@/pages/film/ui/FIlm";
 import Home from "@/pages/home/ui/Home";
 import { ReactNode } from "react";
 
 export enum RouterEnum {
-    HOME = '/'
+    HOME = '/',
+    FILM = '/film/:id'
 }
 
 export const RouterPath =  {
@@ -13,7 +15,8 @@ export const RouterPath =  {
     PREMIERS: () => '/premiers',
     SETTINGS: () => '/settings',
     TRENDS: () => '/trends',
-    FAVOURITES: () => '/favourites'
+    FAVOURITES: () => '/favourites',
+    FILM: () => '/film/:id'
 }
 
 export interface RouterType {
@@ -25,5 +28,9 @@ export const RoutesObject: Record<RouterEnum, RouterType> = {
     [RouterEnum.HOME]: {
         element: <Home />,
         path: RouterPath.HOME(),
+    },
+    [RouterEnum.FILM]: {
+        element: <Film/>,
+        path: RouterPath.FILM()
     }
 }

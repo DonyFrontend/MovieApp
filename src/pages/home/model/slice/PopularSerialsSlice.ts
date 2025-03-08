@@ -1,6 +1,7 @@
 import { StateCreator } from "zustand";
 import { IPopularSerialsSlice } from "../types/SliceTypes";
 import instance from "@/shared/api/tmdb/instance";
+import language from "@/shared/api/language";
 
 export const PopularSerialsSlice: StateCreator<IPopularSerialsSlice> = (set) => ({
     data: {
@@ -13,7 +14,7 @@ export const PopularSerialsSlice: StateCreator<IPopularSerialsSlice> = (set) => 
         setLoading(true);
         instance.get('/tv/popular', {
             params: {
-                language: 'ru-RU',
+                language,
                 page
             }
         })

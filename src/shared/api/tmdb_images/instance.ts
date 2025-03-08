@@ -12,5 +12,5 @@ const imgInstance = axios.create({
 })
 
 export { imgInstance };
-const imgUrl = 'https://image.tmdb.org/t/p/w500'
+const imgUrl = 'https://image.tmdb.org/t/p'
 export { imgUrl }

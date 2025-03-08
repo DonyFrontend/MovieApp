@@ -23,7 +23,7 @@ function App() {
   }
 
   return (
-    <div className='w-full flex justify-between font-serif'>
+    <div className='w-full flex justify-between font-mono'>
       {nav &&
         <div className='w-[35svh]'>
           <Navigation nav={nav} setNav={setNav} />

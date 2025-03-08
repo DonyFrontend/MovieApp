@@ -1,6 +1,7 @@
 import { StateCreator } from "zustand";
 import { IHomeSLice } from "../types/SliceTypes";
 import instance from "@/shared/api/tmdb/instance";
+import language from "@/shared/api/language";
 
 export const PopularMoviesSliceSlice: StateCreator<IHomeSLice> = (set) => ({
     data: {
@@ -14,7 +15,7 @@ export const PopularMoviesSliceSlice: StateCreator<IHomeSLice> = (set) => ({
         instance.get('/movie/popular', {
             params: {
                 page,
-                language: 'ru-RU'
+                language
             }
         })
             .then(data => {
