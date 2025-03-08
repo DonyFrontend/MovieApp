@@ -34,7 +34,8 @@ export const FilmSlice: StateCreator<IFilmSlice> = (set) => ({
         tagline: "",
         video: false,
         vote_average: 0,
-        vote_count: 0
+        vote_count: 0,
+        title: ""
     },
     setData: (id, loading) => {
         loading(true);
