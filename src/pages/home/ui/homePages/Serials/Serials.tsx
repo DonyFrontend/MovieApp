@@ -17,7 +17,7 @@ const Serials = () => {
     setOn_the_air(countAir, setLoading);
     setAiring_today(countAirToday, setLoading);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [count, countAir])
+  }, [count, countAir, countAirToday])
 
   if (loading) {
     return <Loading />
