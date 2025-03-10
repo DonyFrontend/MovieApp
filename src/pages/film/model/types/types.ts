@@ -7,7 +7,7 @@ interface IBelongs_to_collection {
     backdrop_path: string,
 }
 
-interface IGenres {
+export interface IGenres {
     id: number,
     name: string
 }

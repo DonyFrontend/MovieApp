@@ -50,17 +50,22 @@ const Film = () => {
         </button>
         <main className="flex w-full justify-between">
           <div className="flex flex-col w-[65%] gap-y-8 items-start">
-            <div className="flex flex-col gap-y-5 items-start">
+            <div className="flex flex-col gap-y-3 items-start">
               <h1 className="text-[30px] font-bold">{data.title}</h1>
               <div className="flex items-center gap-x-1">
                 <img src={rating} alt="rating" /><p className="text-[20px] font-bold">: {data.vote_average}</p>
               </div>
               <p className="text-[20px]">{data.overview}</p>
+              <div className="flex flex-wrap gap-x-2 items-center text-[20px]">
+                <p>{data.production_companies.length > 1 ? "Киностудий" : "Киностудия"}:</p>
+                {data.production_companies.length > 1 ? data.production_companies.map((item, index) => <p key={index} className="text-nowrap">{item.name}{index !== data.production_companies.length - 1 && ","}</p>) : "Информация отсутствует"}
+              </div>
               <p className="text-[20px]">Дата релиза: {data.release_date}</p>
-              <div className="flex gap-x-2 items-center text-[20px]">
+              <div className="flex gap-x-2 flex-wrap items-center text-[20px]">
                 <p>Жанры:</p>
                 {data.genres.length > 1 ? data.genres.map((item, index) => <p key={index}>{item.name}{index !== data.genres.length - 1 && ","}</p>) : "Информация отсутствует"}
               </div>
+              <p className="text-[20px]">Бюджет: {data.budget.toLocaleString()}$</p>
             </div>
 
             <div className="w-full flex flex-col gap-y-5">

@@ -7,7 +7,7 @@ import hide_nav from '@/shared/assets/icons/hide_nav.svg'
 import { useLocation, useNavigate } from 'react-router-dom';
 
 function App() {
-  const [nav, setNav] = useState<boolean>(JSON.parse(localStorage.getItem('nav') || 'false'));
+  const [nav, setNav] = useState<boolean>(JSON.parse(localStorage.getItem('nav') || 'true'));
   const location = useLocation().pathname;
   const navigate = useNavigate();
 

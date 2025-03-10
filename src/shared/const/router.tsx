@@ -1,10 +1,12 @@
 import Film from "@/pages/film/ui/FIlm";
 import Home from "@/pages/home/ui/Home";
+import Serial from "@/pages/serial/ui/Serial";
 import { ReactNode } from "react";
 
 export enum RouterEnum {
     HOME = '/',
-    FILM = '/film/:id'
+    FILM = '/film/:id',
+    SERIAL = '/serial/:id'
 }
 
 export const RouterPath =  {
@@ -16,7 +18,8 @@ export const RouterPath =  {
     SETTINGS: () => '/settings',
     TRENDS: () => '/trends',
     FAVOURITES: () => '/favourites',
-    FILM: () => '/film/:id'
+    FILM: () => '/film/:id',
+    SERIAL: () => '/serial/:id'
 }
 
 export interface RouterType {
@@ -32,5 +35,9 @@ export const RoutesObject: Record<RouterEnum, RouterType> = {
     [RouterEnum.FILM]: {
         element: <Film/>,
         path: RouterPath.FILM()
-    }
+    },
+    [RouterEnum.SERIAL]: {
+        element: <Serial/>,
+        path: RouterPath.SERIAL()
+    },
 }
