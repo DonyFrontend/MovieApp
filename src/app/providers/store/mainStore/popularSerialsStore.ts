@@ -1,12 +1,12 @@
 import { create } from "zustand";
-import { PopularSerialsSlice } from "@/pages/home/model/slice/PopularSerialsSlice";
+import { SerialsSlice } from "@/pages/home/model/slice/SerialsSlice";
 import { devtools } from "zustand/middleware";
-import { IPopularSerialsSlice } from "@/pages/home/model/types/SliceTypes";
+import { ISerialsSlice } from "@/pages/home/model/types/SliceTypes";
 
 const popularSerialsStore = create(
-    devtools<IPopularSerialsSlice>(
+    devtools<ISerialsSlice>(
         (...b) => ({
-            ...PopularSerialsSlice(...b)
+            ...SerialsSlice(...b)
         })
     )
 )

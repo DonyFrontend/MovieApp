@@ -1,6 +1,6 @@
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
-import Films from "./homePages/Films";
-import Serials from "./homePages/Serials";
+import Films from "./homePages/Films/Films";
+import Serials from "./homePages/Serials/Serials";
 import CustomLink from "./CustomLink";
 import { useEffect } from "react";
 
