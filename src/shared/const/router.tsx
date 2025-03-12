@@ -1,15 +1,17 @@
 import Film from "@/pages/film/ui/FIlm";
 import Home from "@/pages/home/ui/Home";
+import Search from "@/pages/search/ui/Search";
 import Serial from "@/pages/serial/ui/Serial";
 import { ReactNode } from "react";
 
 export enum RouterEnum {
     HOME = '/',
     FILM = '/film/:id',
-    SERIAL = '/serial/:id'
+    SERIAL = '/serial/:id',
+    SEARCH = '/search'
 }
 
-export const RouterPath =  {
+export const RouterPath = {
     HOME: () => '/main/*',
     SEARCH: () => '/search',
     TOP_RATED: () => '/top_rated',
@@ -19,7 +21,7 @@ export const RouterPath =  {
     TRENDS: () => '/trends',
     FAVOURITES: () => '/favourites',
     FILM: () => '/film/:id',
-    SERIAL: () => '/serial/:id'
+    SERIAL: () => '/serial/:id',
 }
 
 export interface RouterType {
@@ -33,11 +35,15 @@ export const RoutesObject: Record<RouterEnum, RouterType> = {
         path: RouterPath.HOME(),
     },
     [RouterEnum.FILM]: {
-        element: <Film/>,
+        element: <Film />,
         path: RouterPath.FILM()
     },
     [RouterEnum.SERIAL]: {
-        element: <Serial/>,
+        element: <Serial />,
         path: RouterPath.SERIAL()
     },
+    [RouterEnum.SEARCH]: {
+        element: <Search />,
+        path: RouterPath.SEARCH()
+    }
 }
