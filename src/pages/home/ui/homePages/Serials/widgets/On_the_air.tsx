@@ -39,7 +39,7 @@ const On_the_air: React.FC<on_the_air> = ({ count, data, heading, setCount }) =>
                         </div>
                     </div>
                     <div>
-                        <button onClick={() => navigate(`/serial/${item.id}`)} className="bg-gray-800 hover:bg-gray-950 transition-colors p-2 px-4 rounded-[10px]">Подробнее</button>
+                        <button onClick={() => navigate(`/tv/${item.id}`)} className="bg-gray-800 hover:bg-gray-950 transition-colors p-2 px-4 rounded-[10px]">Подробнее</button>
                     </div>
                 </section>)}
             </article>

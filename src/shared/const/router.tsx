@@ -6,8 +6,8 @@ import { ReactNode } from "react";
 
 export enum RouterEnum {
     HOME = '/',
-    FILM = '/film/:id',
-    SERIAL = '/serial/:id',
+    FILM = '/movie/:id',
+    SERIAL = '/tv/:id',
     SEARCH = '/search'
 }
 
@@ -20,8 +20,8 @@ export const RouterPath = {
     SETTINGS: () => '/settings',
     TRENDS: () => '/trends',
     FAVOURITES: () => '/favourites',
-    FILM: () => '/film/:id',
-    SERIAL: () => '/serial/:id',
+    FILM: () => '/movie/:id',
+    SERIAL: () => '/tv/:id',
 }
 
 export interface RouterType {

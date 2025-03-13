@@ -40,7 +40,7 @@ const Upcoming: React.FC<PopularType> = ({ data, heading, setCount, count }) => 
                         </div>
                     </div>
                     <div>
-                        <button onClick={() => navigate(`/film/${item.id}`)} className="bg-gray-800 hover:bg-gray-950 transition-colors p-2 px-4 rounded-[10px]">Подробнее</button>
+                        <button onClick={() => navigate(`/movie/${item.id}`)} className="bg-gray-800 hover:bg-gray-950 transition-colors p-2 px-4 rounded-[10px]">Подробнее</button>
                     </div>
                 </section>)}
             </article>

@@ -3,13 +3,13 @@ import Loading from "@/pages/load/Loading";
 import films_serials from "@/shared/const/films&serials";
 import { FormEvent, useState } from "react";
 import { useTypewriter } from "react-simple-typewriter";
-import Best_result from "./pages/best_result";
 import NotFound from "./pages/NotFound";
+import Best_result from "./pages/Best_result";
+import Results from "./pages/Results";
 
 const Search = () => {
     const [placeholder, setPlaceholder] = useState<boolean>(false);
     const [query, setQuery] = useState<string>("");
-    const [page, setPage] = useState<number>(1);
     const [error, setError] = useState<boolean>(false);
     const [loading, setLoading] = useState<boolean>(false);
     const [type, setType] = useState<string>(sessionStorage.getItem("type") || "multi");
@@ -32,8 +32,9 @@ const Search = () => {
             setError(true);
         } else {
             setError(false);
-            setData(page, setLoading, query, type);
+            setData(1, setLoading, query, type);
             sessionStorage.setItem("lastQuery", query);
+            sessionStorage.setItem("resultPage", "1");
             setLastQuery(query);
             setQuery("");
         }
@@ -45,11 +46,13 @@ const Search = () => {
 
     const setSessionType = (newType: string) => {
         sessionStorage.setItem("type", newType);
+        sessionStorage.setItem("resultPage", "1");
         setType(sessionStorage.getItem("type") || "multi");
         if (data.page > 0) {
-            setData(page, setLoading, lastQuery, newType);
+            setData(1, setLoading, lastQuery, newType);
         }
     }
+
 
     return (
         <div className="text-white p-4 flex flex-col gap-y-8">
@@ -77,12 +80,13 @@ const Search = () => {
                     </div>
                 </div>
             </div>
-            {loading ? <Loading/> : data.page > 0 ? data.results[0] ?
+            {loading ? <Loading /> : data.page > 0 ? data.results[0] ?
                 <div className="flex flex-col gap-y-5">
-                    <Best_result data={data.results[0]} type={type}/>
-                </div> : <NotFound/> : <h1>Введите запрос</h1>}
+                    <Best_result data={data.results[0]} type={type} />
+                    <Results query={lastQuery} type={type}/>
+                </div> : <NotFound /> : <h1>Введите запрос</h1>}
         </div>
-        
+
     )
 }
 

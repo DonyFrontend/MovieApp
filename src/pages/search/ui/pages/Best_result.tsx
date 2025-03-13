@@ -10,26 +10,23 @@ type props = {
 
 const Best_result: React.FC<IBestResult & props> = ({ data, type }) => {
     const [navigator, setNavigator] = useState<string>("");
+    const navigate = useNavigate();
 
     useEffect(() => {
         switch (type) {
             case "tv":
-                setNavigator("serial");
+                setNavigator("tv");
                 break;
             case "movie":
-                setNavigator("film");
+                setNavigator("movie");
                 break
             case "multi":
-                setNavigator(data.media_type == "tv" ? "serial" : "film");
+                setNavigator(data.media_type == "tv" ? "tv" : "movie");
                 break
             default:
                 break;
         }
     }, [data.media_type, type])
-
-    console.log(navigator);
-
-    const navigate = useNavigate();
 
     return (
 

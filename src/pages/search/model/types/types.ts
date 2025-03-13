@@ -31,6 +31,8 @@ export interface ISearchData {
 export interface ISearchSlice {
     data: ISearchData,
     setData: (page: number, loading: Dispatch<SetStateAction<boolean>>, query: string, type?: string) => void
+    setOtherData: (page: number, loading: Dispatch<SetStateAction<boolean>>, query: string, type?: string) => void
+    other_data: ISearchData,
 }
 
 export interface IBestResult {
