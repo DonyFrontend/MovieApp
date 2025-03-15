@@ -23,7 +23,6 @@ const Film = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-
   if (loading) {
     return <Loading />
   }
@@ -53,7 +52,7 @@ const Film = () => {
             <div className="flex flex-col gap-y-3 items-start">
               <h1 className="text-[30px] font-bold">{data.title}</h1>
               <div className="flex items-center gap-x-1">
-                <img src={rating} alt="rating" /><p className="text-[20px] font-bold">: {data.vote_average}</p>
+                <img src={rating} alt="rating" /><p className="text-[20px] font-bold">: {Math.round(data.vote_average * 10) / 10}</p>
               </div>
               <p className="text-[20px]">{data.overview}</p>
               <div className="flex flex-wrap gap-x-2 items-center text-[20px]">
@@ -78,7 +77,7 @@ const Film = () => {
               </article>
             </div>
           </div>
-          <div>
+          <div className="flex flex-col items-start gap-y-4">
             <img className="rounded-[10px]" src={imgUrl + '/w342' + data.poster_path} alt="" />
           </div>
         </main>

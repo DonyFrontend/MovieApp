@@ -4,10 +4,6 @@ import discover from '@/shared/assets/icons/discover.svg';
 import discover_active from '@/shared/assets/icons/discover_active.svg';
 import top_rated from '@/shared/assets/icons/top_rated.svg';
 import top_rated_active from '@/shared/assets/icons/top_rated_active.svg';
-import now_in_cinema from '@/shared/assets/icons/now_in_cinema.svg';
-import now_in_cinema_active from '@/shared/assets/icons/now_in_cinema_active.svg';
-import premiers from '@/shared/assets/icons/premieres.svg';
-import premiers_active from '@/shared/assets/icons/premieres_active.svg';
 import favourites from '@/shared/assets/icons/favourites.svg';
 import favourites_active from '@/shared/assets/icons/favourites_active.svg';
 import trends from '@/shared/assets/icons/trends.svg';
@@ -47,18 +43,6 @@ const Navigation: React.FC<showNav> = () => {
       activeImage: top_rated_active
     },
     {
-      text: 'Сейчас в кино',
-      image: now_in_cinema,
-      to: RouterPath.NOW_IN_CINEMA(),
-      activeImage: now_in_cinema_active
-    },
-    {
-      text: 'Премьеры',
-      image: premiers,
-      to: RouterPath.PREMIERS(),
-      activeImage: premiers_active
-    },
-    {
       text: 'Избранное',
       image: favourites,
       to: RouterPath.FAVOURITES(),
@@ -89,13 +73,13 @@ const Navigation: React.FC<showNav> = () => {
       <div className='flex flex-col gap-y-2'>
         <h2 className='text-[18px] font-bold text-[#f9f9f9]'>Меню</h2>
         <article className='flex flex-col gap-y-2'>
-          {navItems.slice(0, 7).map((item, index) => <CustomLink key={index} image={item.image} text={item.text} to={item.to} activeImage={item.activeImage} />)}
+          {navItems.slice(0, 5).map((item, index) => <CustomLink key={index} image={item.image} text={item.text} to={item.to} activeImage={item.activeImage} />)}
         </article>
       </div>
       <div className='flex flex-col gap-y-2'>
         <h2 className='text-[18px] font-bold text-[#f9f9f9]'>Аккаунт</h2>
         <article className='flex flex-col gap-y-2'>
-          {navItems.slice(7).map((item, index) => <CustomLink key={index} image={item.image} text={item.text} to={item.to} activeImage={item.activeImage} />)}
+          {navItems.slice(5).map((item, index) => <CustomLink key={index} image={item.image} text={item.text} to={item.to} activeImage={item.activeImage} />)}
         </article>
       </div>
     </nav>

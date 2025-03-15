@@ -2,21 +2,21 @@ import Film from "@/pages/film/ui/FIlm";
 import Home from "@/pages/home/ui/Home";
 import Search from "@/pages/search/ui/Search";
 import Serial from "@/pages/serial/ui/Serial";
+import Trends from "@/pages/trends/ui/Trends";
 import { ReactNode } from "react";
 
 export enum RouterEnum {
     HOME = '/',
     FILM = '/movie/:id',
     SERIAL = '/tv/:id',
-    SEARCH = '/search'
+    SEARCH = '/search',
+    TRENDS = '/trends'
 }
 
 export const RouterPath = {
     HOME: () => '/main/*',
     SEARCH: () => '/search',
     TOP_RATED: () => '/top_rated',
-    NOW_IN_CINEMA: () => '/now_in_cinema',
-    PREMIERS: () => '/premiers',
     SETTINGS: () => '/settings',
     TRENDS: () => '/trends',
     FAVOURITES: () => '/favourites',
@@ -45,5 +45,9 @@ export const RoutesObject: Record<RouterEnum, RouterType> = {
     [RouterEnum.SEARCH]: {
         element: <Search />,
         path: RouterPath.SEARCH()
-    }
+    },
+    [RouterEnum.TRENDS]: {
+        element: <Trends/>,
+        path: RouterPath.TRENDS()
+    },
 }

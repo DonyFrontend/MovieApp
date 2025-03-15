@@ -48,7 +48,7 @@ const Serial = () => {
                         <div className="flex flex-col gap-y-3 items-start">
                             <h1 className="text-[30px] font-bold">{data.name}</h1>
                             <div className="flex items-center gap-x-1">
-                                <img src={rating} alt="rating" /><p className="text-[20px] font-bold">: {data.vote_average}</p>
+                                <img src={rating} alt="rating" /><p className="text-[20px] font-bold">: {Math.round(data.vote_average * 10) / 10}</p>
                             </div>
                             <p className="text-[20px]">{data.overview == "" ? "Описание: (Информация отсутствует)" : data.overview}</p>
                             <div className="flex gap-x-2 items-center text-[20px]">

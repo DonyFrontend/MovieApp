@@ -35,7 +35,7 @@ const Airing_today: React.FC<airing_today> = ({ count, data, heading, setCount }
                         <img src={imgUrl + '/w500' + item.poster_path} alt="IMAGE" className="rounded-[10px] h-full brightness-50" />
                         <h2 className="absolute top-2 left-2 text-[20px] font-semibold">{item.name}</h2>
                         <div className="absolute left-2 bottom-2 flex items-center gap-x-1">
-                            <img src={rating} alt="rating" /><p className="text-[20px] font-bold">: {item.vote_average}</p>
+                            <img src={rating} alt="rating" /><p className="text-[20px] font-bold">: {Math.round(item.vote_average * 10) / 10}</p>
                         </div>
                     </div>
                     <div>

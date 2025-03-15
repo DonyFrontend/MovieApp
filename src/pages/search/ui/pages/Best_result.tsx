@@ -47,7 +47,7 @@ const Best_result: React.FC<IBestResult & props> = ({ data, type }) => {
                             <h2 className='text-[30px] text-outline'>{data.name ? data.name : data.title}</h2>
                             <div className='flex gap-x-4 items-center'>
                                 <img src={rating} alt="Rating" />
-                                <p className='text-outline'>{data.vote_average}</p>
+                                <p className='text-outline'>{Math.round(data.vote_average * 10) / 10}</p>
                             </div>
                             <p className='text-outline'>{data.overview}</p>
                             <p className='text-outline'>Дата релиза: {data.release_date ? data.release_date : data.first_air_date}</p>

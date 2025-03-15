@@ -56,9 +56,9 @@ const Results: React.FC<results> = ({ query, type }) => {
                 {page == 1 ? other_data.results.slice(1).map((item, index) => <section key={index} className="rounded-[10px] bg-[#F8B319] p-1 flex flex-col gap-y-2">
                     <div className="relative h-full">
                         <img src={imgUrl + '/w500' + item.poster_path} alt="IMAGE" className="rounded-[10px] h-full brightness-50" />
-                        <h2 className="absolute top-2 left-2 text-[20px] font-semibold">{item.title}</h2>
+                        <h2 className="absolute top-2 left-2 text-[20px] font-semibold">{item.title || item.name}</h2>
                         <div className="absolute left-2 bottom-2 flex items-center gap-x-1">
-                            <img src={rating} alt="rating" /><p className="text-[20px] font-bold">: {item.vote_average}</p>
+                            <img src={rating} alt="rating" /><p className="text-[20px] font-bold">: {Math.round(item.vote_average * 10) / 10}</p>
                         </div>
                     </div>
                     <div>
@@ -67,9 +67,9 @@ const Results: React.FC<results> = ({ query, type }) => {
                 </section>) : other_data.results.map((item, index) => <section key={index} className="rounded-[10px] bg-[#F8B319] p-1 flex flex-col gap-y-2">
                     <div className="relative h-full">
                         <img src={imgUrl + '/w500' + item.poster_path} alt="IMAGE" className="rounded-[10px] h-full brightness-50" />
-                        <h2 className="absolute top-2 left-2 text-[20px] font-semibold">{item.title}</h2>
+                        <h2 className="absolute top-2 left-2 text-[20px] font-semibold">{item.title || item.name}</h2>
                         <div className="absolute left-2 bottom-2 flex items-center gap-x-1">
-                            <img src={rating} alt="rating" /><p className="text-[20px] font-bold">: {item.vote_average}</p>
+                            <img src={rating} alt="rating" /><p className="text-[20px] font-bold">: {Math.round(item.vote_average * 10) / 10}</p>
                         </div>
                     </div>
                     <div>

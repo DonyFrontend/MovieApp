@@ -82,6 +82,7 @@ const Search = () => {
             </div>
             {loading ? <Loading /> : data.page > 0 ? data.results[0] ?
                 <div className="flex flex-col gap-y-5">
+                    <h2 className="text-[25px]">Всего результатов: {data.total_results}</h2>
                     <Best_result data={data.results[0]} type={type} />
                     <Results query={lastQuery} type={type}/>
                 </div> : <NotFound /> : <h1>Введите запрос</h1>}
