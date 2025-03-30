@@ -1,4 +1,4 @@
-import Account from "@/pages/account/ui/Account";
+import Auth from "@/features/Auth/ui/Auth";
 import Film from "@/pages/film/ui/FIlm";
 import Home from "@/pages/home/ui/Home";
 import Search from "@/pages/search/ui/Search";
@@ -6,6 +6,7 @@ import Serial from "@/pages/serial/ui/Serial";
 import Top_rated from "@/pages/top_rated/ui/Top_rated";
 import Trends from "@/pages/trends/ui/Trends";
 import { ReactNode } from "react";
+import Account from "@/features/account/ui/Account";
 
 export enum RouterEnum {
     HOME = '/',
@@ -14,7 +15,8 @@ export enum RouterEnum {
     SEARCH = '/search',
     TRENDS = '/trends',
     TOP_RATED = '/top_rated',
-    ACCOUNT = '/account'
+    ACCOUNT = '/account',
+    AUTH = '/auth'
 }
 
 export const RouterPath = {
@@ -25,7 +27,10 @@ export const RouterPath = {
     FAVOURITES: () => '/favourites',
     FILM: () => '/movie/:id',
     SERIAL: () => '/tv/:id',
-    ACCOUNT: () => '/account'
+    ACCOUNT: () => '/account',
+    REGISTRATION: () => '/registration',
+    LOGIN: () => '/login',
+    AUTH: () => '/auth'
 }
 
 export interface RouterType {
@@ -58,8 +63,11 @@ export const RoutesObject: Record<RouterEnum, RouterType> = {
         element: <Top_rated/>,
         path: RouterPath.TOP_RATED()
     },
+    [RouterEnum.AUTH]: {
+        element: <Auth/>,
+        path: RouterPath.AUTH()
+    },
     [RouterEnum.ACCOUNT]: {
         element: <Account/>,
-        path: RouterPath.ACCOUNT()
-    }
+        path: RouterPath.ACCOUNT()    }
 }

@@ -5,6 +5,12 @@ export default {
     extend: {
       textOutline: {
         'outline': 'yellow'
+      },
+      backgroundColor: {
+        'mainColor': '#F8B319'
+      },
+      textColor: {
+        'mainColor': '#F8B319'
       }
     },
   },
