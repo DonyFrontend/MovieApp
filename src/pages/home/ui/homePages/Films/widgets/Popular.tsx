@@ -27,6 +27,9 @@ const Popular: React.FC<PopularType> = ({ data, heading, setCount, count }) => {
         } else setCount(count - 1);
     };
 
+    console.log(data);
+    
+
     return (
         <div className='flex flex-col gap-y-2'>
             <h1 ref={ref} className="text-[25px]">{heading}</h1>

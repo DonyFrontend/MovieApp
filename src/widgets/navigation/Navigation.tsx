@@ -57,7 +57,7 @@ const Navigation: React.FC<showNav> = () => {
     {
       text: 'Аккаунт',
       image: settings,
-      to: RouterPath.SETTINGS(),
+      to: RouterPath.ACCOUNT(),
       activeImage: settings_active,
     },
     {
