@@ -6,14 +6,18 @@ import avatar from "@/shared/assets/icons/avatar.svg";
 import { imgUrl } from "@/shared/api/tmdb_images/instance";
 import account_href from "@/shared/api/account_href";
 import info_mark from "@/shared/assets/icons/Info_mark.svg";
+import FavMovies from "./pages/FavMovies";
+import FavTV from "./pages/FavTV";
 
 const Account = () => {
   const navigate = useNavigate();
   const id = localStorage.getItem("session_id");
-  const { account, setAccount } = useAccountStore();
+  const { account, setAccount, fav_movies, fav_tv, getFavMovies, getFavTV } =
+    useAccountStore();
   const [loading, setLoading] = useState<boolean>(false);
-
   const avatarPath = account.avatar.tmdb.avatar_path;
+  const [count_movies, setCount_movies] = useState<number>(1);
+  const [count_tv, setCount_tv] = useState<number>(1);
 
   useEffect(() => {
     if (!id) {
@@ -22,10 +26,12 @@ const Account = () => {
     if (id != null && account.id == 0) {
       setAccount(id, setLoading);
     }
+    getFavTV(account.id, setLoading);
+    getFavMovies(account.id, setLoading);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log(account);
+  console.log("Movies:\r\n", fav_movies, "\r\nTV:\r\n", fav_tv);
 
   if (loading) {
     return <Loading />;
@@ -33,7 +39,7 @@ const Account = () => {
   console.log(account);
 
   return (
-    <div className="p-3 text-white">
+    <div className="p-3 text-white flex flex-col gap-y-10">
       <div className="flex flex-col gap-y-4">
         <div className="flex gap-x-8">
           <img
@@ -65,7 +71,47 @@ const Account = () => {
           />
         </div>
       </div>
-      <div></div>
+      <div className="flex flex-col gap-y-10">
+        <h3 className="text-[25px] font-semibold">Избранные</h3>
+        <div className="flex flex-col gap-y-12">
+          {fav_movies.results.length ? (
+            <FavMovies
+              count={count_movies}
+              data={fav_movies}
+              heading="Фильмы"
+              setCount={setCount_movies}
+            />
+          ) : (
+            <p>
+              Вы еще не добавили ни одного фильма. Начните делать это{" "}
+              <span
+                className="underline cursor-pointer"
+                onClick={() => navigate("/main/films")}
+              >
+                прямо сейчас!
+              </span>
+            </p>
+          )}
+          {fav_tv.results.length ? (
+            <FavTV
+              count={count_tv}
+              data={fav_tv}
+              heading="Сериалы"
+              setCount={setCount_tv}
+            />
+          ) : (
+            <p>
+              Вы еще не добавили ни одного сериала. Начните делать это{" "}
+              <span
+                className="underline cursor-pointer"
+                onClick={() => navigate("/main/serials")}
+              >
+                прямо сейчас!
+              </span>
+            </p>
+          )}
+        </div>
+      </div>
     </div>
   );
 };

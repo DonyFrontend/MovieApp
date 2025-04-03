@@ -24,7 +24,6 @@ export const RouterPath = {
     SEARCH: () => '/search',
     TOP_RATED: () => '/top_rated/*',
     TRENDS: () => '/trends',
-    FAVOURITES: () => '/favourites',
     FILM: () => '/movie/:id',
     SERIAL: () => '/tv/:id',
     ACCOUNT: () => '/account',
