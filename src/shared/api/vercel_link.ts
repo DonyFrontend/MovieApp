@@ -1,0 +1,1 @@
+export default 'https://movie-app-red-zeta-43.vercel.app/'

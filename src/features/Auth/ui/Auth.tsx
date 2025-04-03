@@ -43,7 +43,7 @@ const Auth = () => {
         <p className="text-[20px] font-semibold text-mainColor">
           {request_token
             ? "Токен доступа успешно создан"
-            : "Вы еще не создавали токена доступа"}
+            : "Вы еще не создавали токен доступа"}
         </p>
         <div className="flex gap-x-2">
           <button
