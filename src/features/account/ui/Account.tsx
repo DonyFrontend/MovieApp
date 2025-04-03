@@ -14,16 +14,18 @@ const Account = () => {
   const [loading, setLoading] = useState<boolean>(false);
 
   const avatarPath = account.avatar.tmdb.avatar_path;
-  
+
   useEffect(() => {
     if (!id) {
       navigate("/auth");
     }
-    if (id != null) {
+    if (id != null && account.id == 0) {
       setAccount(id, setLoading);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  console.log(account);
 
   if (loading) {
     return <Loading />;
@@ -55,7 +57,12 @@ const Account = () => {
           >
             Настройки аккаунта
           </a>
-          <img src={info_mark} alt="Info" className="w-[35px] h-[35px]" title={`Данный сайт не может менять персональные данные, поэтому вы можете сделать это на официальном сайте`}/>
+          <img
+            src={info_mark}
+            alt="Info"
+            className="w-[35px] h-[35px]"
+            title={`Данный сайт не может менять персональные данные, поэтому вы можете сделать это на официальном сайте`}
+          />
         </div>
       </div>
       <div></div>
