@@ -66,7 +66,7 @@ const Serial = () => {
             <p>Back</p>
           </button>
           <button
-            onClick={setFavorite}
+            onClick={session_id ? setFavorite : () => navigate('/auth')}
             className="bg-gray-800 p-2 rounded-[10px]"
           >
             <img src={isFav ? fav_remove : fav_add} alt="Favorite" />
