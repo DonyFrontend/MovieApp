@@ -50,7 +50,7 @@ const Results: React.FC<results> = ({ query, type }) => {
     console.log(other_data);
 
     return (
-        <div className="text-white p-4 flex flex-col gap-y-8">
+        <div className="text-white max-md:mt-20 p-4 flex flex-col gap-y-8">
             <h2 ref={ref} className="text-[25px]">Другие результаты:</h2>
             <article className={`grid grid-cols-5 max-md:grid-cols-2 max-lg:grid-cols-4 auto-rows-auto gap-5`}>
                 {page == 1 ? other_data.results.slice(1).map((item, index) => <section key={index} className="rounded-[10px] bg-[#F8B319] p-1 flex flex-col gap-y-2">
