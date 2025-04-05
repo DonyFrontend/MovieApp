@@ -34,7 +34,7 @@ const FavMovies = ({ count, data, heading, setCount }: MoviesType) => {
   return (
       <div className='flex flex-col gap-y-2'>
           <h1 ref={ref} className="text-[25px]">{heading}</h1>
-          <article className={`grid grid-cols-5 auto-rows-auto gap-5`}>
+          <article className={`grid grid-cols-5 max-md:grid-cols-2 max-lg:grid-cols-4 auto-rows-auto gap-5`}>
               {data.results.map((item, index) => <section key={index} className="rounded-[10px] bg-[#F8B319] p-1 flex flex-col gap-y-2">
                   <div className="relative h-full">
                       <img src={imgUrl + '/w500' + item.poster_path} alt="IMAGE" className="rounded-[10px] h-full brightness-50" />

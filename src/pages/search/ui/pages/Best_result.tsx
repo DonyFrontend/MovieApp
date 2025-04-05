@@ -3,6 +3,7 @@ import { IBestResult } from '../../model/types/types'
 import { imgUrl } from '@/shared/api/tmdb_images/instance';
 import rating from '@/shared/assets/icons/rating.svg';
 import { useNavigate } from 'react-router-dom';
+import { useMediaQuery } from '@/shared/hooks/useMedia';
 
 type props = {
     type: string
@@ -11,6 +12,7 @@ type props = {
 const Best_result: React.FC<IBestResult & props> = ({ data, type }) => {
     const [navigator, setNavigator] = useState<string>("");
     const navigate = useNavigate();
+    const media = useMediaQuery('(max-width:768px)');
 
     useEffect(() => {
         switch (type) {
@@ -32,18 +34,18 @@ const Best_result: React.FC<IBestResult & props> = ({ data, type }) => {
 
         <div
             className="relative w-full h-screen bg-cover bg-center rounded-[10px]"
-            style={{ backgroundImage: `url(${imgUrl + '/w1280' + data.backdrop_path})` }}
+            style={{ backgroundImage: `${!media && `url(${imgUrl + `/w1280` + data.backdrop_path})`}` }}
         >
-            <div className="absolute inset-0 bg-black opacity-50"></div>
+            <div className="absolute inset-0 md:bg-black opacity-50"></div>
 
             <div className="relative z-10 flex items-center justify-center h-full">
-                <main className='flex flex-col p-4 rounded-[10px] text-[20px] gap-y-6'>
+                <main className='flex flex-col max-md:items-center p-4 rounded-[10px] text-[20px] gap-y-6'>
                     <h1 className='text-[25px] text-outline'>Лучший результат</h1>
-                    <div className='flex gap-x-16'>
+                    <div className='flex max-md:items-center max-md:flex-col gap-x-16'>
                         <div className='min-w-max'>
-                            <img src={imgUrl + "/w342" + data.poster_path} className='rounded-[10px]' alt="Poster" />
+                            <img src={imgUrl + `/w${media ? '300' : '342'}` + data.poster_path} className='rounded-[10px]' alt="Poster" />
                         </div>
-                        <div className='flex flex-col gap-y-3'>
+                        <div className='flex max-md:items-center flex-col gap-y-3'>
                             <h2 className='text-[30px] text-outline'>{data.name ? data.name : data.title}</h2>
                             <div className='flex gap-x-4 items-center'>
                                 <img src={rating} alt="Rating" />

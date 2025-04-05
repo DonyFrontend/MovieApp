@@ -52,7 +52,7 @@ const Results: React.FC<results> = ({ query, type }) => {
     return (
         <div className="text-white p-4 flex flex-col gap-y-8">
             <h2 ref={ref} className="text-[25px]">Другие результаты:</h2>
-            <article className={`grid grid-cols-5 auto-rows-auto gap-5`}>
+            <article className={`grid grid-cols-5 max-md:grid-cols-2 max-lg:grid-cols-4 auto-rows-auto gap-5`}>
                 {page == 1 ? other_data.results.slice(1).map((item, index) => <section key={index} className="rounded-[10px] bg-[#F8B319] p-1 flex flex-col gap-y-2">
                     <div className="relative h-full">
                         <img src={imgUrl + '/w500' + item.poster_path} alt="IMAGE" className="rounded-[10px] h-full brightness-50" />

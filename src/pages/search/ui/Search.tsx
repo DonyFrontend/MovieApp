@@ -60,7 +60,7 @@ const Search = () => {
                 <form onSubmit={handleSubmit} className="flex flex-col gap-y-2">
                     <input
                         type="text"
-                        className="bg-[#21242D] p-2 rounded-[10px] w-[30svh]"
+                        className="bg-[#21242D] p-2 rounded-[10px] w-[50svh]"
                         placeholder={placeholder ? "Искать..." : text}
                         onFocus={() => setPlaceholder(true)}
                         onMouseEnter={() => setPlaceholder(true)}
@@ -81,7 +81,7 @@ const Search = () => {
                 </div>
             </div>
             {loading ? <Loading /> : data.page > 0 ? data.results[0] ?
-                <div className="flex flex-col gap-y-5">
+                <div className="flex flex-col gap-y-5 max-md:gap-y-28">
                     <h2 className="text-[25px]">Всего результатов: {data.total_results}</h2>
                     <Best_result data={data.results[0]} type={type} />
                     <Results query={lastQuery} type={type}/>

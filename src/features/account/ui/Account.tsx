@@ -59,7 +59,7 @@ const Account = () => {
           <a
             target="_blank"
             href={account_href + account.username}
-            className="p-3 bg-mainColor rounded-[10px] w-[30%] flex justify-center"
+            className="p-3 bg-mainColor rounded-[10px] w-[300px] flex justify-center"
           >
             Настройки аккаунта
           </a>

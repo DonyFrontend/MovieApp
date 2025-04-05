@@ -58,7 +58,7 @@ const Trends = () => {
         <div className="p-4 text-white flex flex-col gap-y-12">
             <div className="flex flex-col gap-y-2">
                 <h2 ref={ref} className="text-[25px]">Тренды за день:</h2>
-                <article className={`grid grid-cols-5 auto-rows-auto gap-5`}>
+                <article className={`grid grid-cols-5 max-md:grid-cols-2 max-lg:grid-cols-4 auto-rows-auto gap-5`}>
                     {day.results.map((item, index) => <section key={index} className="rounded-[10px] bg-[#F8B319] p-1 flex flex-col gap-y-2">
                         <div className="relative h-full">
                             <img src={imgUrl + '/w500' + item.poster_path} alt="IMAGE" className="rounded-[10px] h-full brightness-50" />

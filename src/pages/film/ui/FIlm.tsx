@@ -75,9 +75,9 @@ const Film = () => {
             <img src={isFav ? fav_remove : fav_add} alt="Favorite" />
           </button>
         </div>
-        <main className="flex w-full justify-between">
-          <div className="flex flex-col w-[65%] gap-y-8 items-start">
-            <div className="flex flex-col gap-y-3 items-start">
+        <main className="flex max-md:flex-col-reverse max-md:items-center w-full justify-between">
+          <div className="flex flex-col w-[65%] max-lg:w-full gap-y-8 items-start">
+            <div className="flex flex-col max-md:items-center gap-y-3 items-start">
               <h1 className="text-[30px] font-bold">{data.title}</h1>
               <div className="flex items-center gap-x-1">
                 <img src={rating} alt="rating" />
@@ -128,7 +128,7 @@ const Film = () => {
                       <h2 className="text-[20px]">{item.name}</h2>
                       <iframe
                         src={youtube + `/${item.key}`}
-                        className="h-[400px] rounded-[10px]"
+                        className="h-[400px] max-lg:w-[90%] rounded-[10px]"
                       ></iframe>
                     </section>
                   ))

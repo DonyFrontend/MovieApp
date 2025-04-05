@@ -66,17 +66,17 @@ const Serial = () => {
             <p>Back</p>
           </button>
           <button
-            onClick={session_id ? setFavorite : () => navigate('/auth')}
+            onClick={session_id ? setFavorite : () => navigate("/auth")}
             className="bg-gray-800 p-2 rounded-[10px]"
           >
             <img src={isFav ? fav_remove : fav_add} alt="Favorite" />
           </button>
         </div>
-        <main className="flex w-full justify-between">
-          <div className="flex flex-col w-[65%] gap-y-8 items-start">
-            <div className="flex flex-col gap-y-3 items-start">
+        <main className="flex max-md:flex-col-reverse max-md:items-center w-full justify-between">
+          <div className="flex flex-col w-[65%] max-md:w-full gap-y-8 items-start">
+            <div className="flex flex-col max-md:items-center gap-y-3 items-start">
               <h1 className="text-[30px] font-bold">{data.name}</h1>
-              <div className="flex items-center gap-x-1">
+              <div className="flex items-center  gap-x-1">
                 <img src={rating} alt="rating" />
                 <p className="text-[20px] font-bold">
                   : {Math.round(data.vote_average * 10) / 10}
@@ -87,16 +87,18 @@ const Serial = () => {
                   ? "Описание: (Информация отсутствует)"
                   : data.overview}
               </p>
-              <div className="flex gap-x-2 items-center text-[20px]">
+              <div className="flex flex-col gap-x-2 max-md:items-center text-[20px]">
                 <p>Жанры:</p>
-                {data.genres.length > 1
-                  ? data.genres.map((item, index) => (
-                      <p key={index}>
-                        {item.name}
-                        {index !== data.genres.length - 1 && ","}
-                      </p>
-                    ))
-                  : "Информация отсутствует"}
+                <div className="flex flex-wrap gap-x-2">
+                  {data.genres.length > 1
+                    ? data.genres.map((item, index) => (
+                        <p key={index}>
+                          {item.name}
+                          {index !== data.genres.length - 1 && ","}
+                        </p>
+                      ))
+                    : "Информация отсутствует"}
+                </div>
               </div>
               <div className="flex gap-x-2 items-center text-[20px]">
                 <p>Авторы:</p>
